@@ -1,5 +1,3 @@
-README.md
-
 Ewa Klimkowska
 
 # book-recipe
