@@ -1,0 +1,50 @@
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: template (~{:: #add-recipe-page-section})}">
+
+<section id="add-recipe-page-section">
+<div class="container">
+
+  <form method="post" th:action="@{/recipes/create}" th:object="${newRecipe}" enctype="multipart/form-data">
+
+    <div class="recipe-row">
+      <label>Category: </label>
+      <select class="form-control" th:field="*{category}">
+        <option th:each="c: ${categories}" th:value="${c}" th:text="${c}"></option>
+      </select>
+    </div>
+
+    <div class="recipe-row">
+      <label>Name: </label>
+      <input class="form-control" type="text" th:field="*{name}" placeholder="Name" th:class="input" >
+    </div>
+
+    <div class="recipe-row">
+      <label>Description: </label>
+      <input class="form-control" type="text" th:field="*{description}" placeholder="Description" th:class="input" >
+    </div>
+
+    <div class="recipe-row">
+      <label>Directions: </label>
+      <input class="form-control" type="text" th:field="*{directions}" placeholder="Directions" th:class="input">
+    </div>
+
+    <div class="recipe-row">
+      <label>Ingredients: </label>
+      <input class="form-control" type="text" th:field="*{ingredients}" placeholder="Ingredients" th:class="input">
+    </div>
+
+    <div class="recipe-row">
+      <label>Image: </label>
+      <input class="form-control" type="file" name="file" accept="image/*">
+    </div>
+
+    <br>
+    <div class="form-row" style="justify-content: center">
+      <input class="form-control btn btn-primary col-9" type="submit" value="Add new recipe">
+    </div>
+
+  </form>
+</div>
+</section>
+
+</html>

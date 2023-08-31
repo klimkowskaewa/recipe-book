@@ -1,0 +1,73 @@
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: template (~{:: #recipe-page-section})}" xmlns="http://www.w3.org/1999/html">
+
+<section id="recipe-page-section">
+<div class="container-dwa">
+
+          <table class="recipe-table">
+          <thead>
+          <tr>
+              <th>Category</th>
+              <th>Name</th>
+              <th>Ingredients</th>
+              <th>Description</th>
+              <th>Directions</th>
+              <th>Image</th>
+              <th>Action</th>
+          </tr>
+          </thead>
+
+          <tbody>
+                  <tr>
+                      <form method="post" th:action="@{/recipes/create}" th:object="${newRecipe}" enctype="multipart/form-data">
+                          <td>
+                             <select class="form-control" th:field="*{category}">
+                             <option th:each="c: ${categories}" th:value="${c}" th:text="${c}"></option>
+                             </select>
+                          </td>
+                          <td><input class="form-control" type="text" th:field="*{name}"></td>
+                          <td><input class="form-control" type="text" th:field="*{ingredients}"></td>
+                          <td><input class="form-control" type="text" th:field="*{description}"></td>
+                          <td><input class="form-control" type="text" th:field="*{directions}"></td>
+                          <td><input class="form-control" type="file" name="file" accept="image/*"></td>
+                          <td><input class="form-control btn btn-primary col-9" type="submit" value="Add recipe"></td>
+                      </form>
+                  </tr>
+
+                  <tr th:each="recipe : ${recipes}">
+                      <div th:if="${recipe.getId() != editedId}">
+                          <td th:text="${recipe.category}" style="max-width: available"></td>
+                          <td th:text="${recipe.name}" style="max-width: available"></td>
+                          <td th:text="${recipe.ingredients}" style="max-width: available"></td>
+                          <td th:text="${recipe.description}" style="max-width: available"></td>
+                          <td th:text="${recipe.directions}" style="max-width: available"></td>
+                          <td><img class="img-thumbnail rounded" th:src="@{'recipes/recipe/image/' + ${recipe.id}}" style="max-height: 200px"></td>
+                          <td class="row">
+                                  <a class="btn btn-recipe-delete" th:href="@{/recipes/delete/{id}(id=${recipe.getId()})}">Delete</a>
+                                  <a class="btn btn-recipe-warning" th:href="@{/recipes(editedId=${recipe.getId()})}">Edit</a>
+                          </td>
+                      </div>
+
+                      <div th:unless="${recipe.getId() != editedId}">
+                          <form method="post" th:action="@{/recipes/edit/{id}(id=${editRecipe.getId()})}" th:object="${editRecipe}" enctype="multipart/form-data">
+                                  <td>
+                                    <select class="form-control" th:field="*{category}">
+                                      <option th:each="c: ${categories}" th:value="${c}" th:text="${c}"></option>
+                                    </select>
+                                  </td>
+                                  <td><input class="form-control" type="text" th:field="*{name}"></td>
+                                  <td><input class="form-control" type="text" th:field="*{ingredients}"></td>
+                                  <td><input class="form-control" type="text" th:field="*{description}"></td>
+                                  <td><input class="form-control" type="text" th:field="*{directions}"></td>
+                                  <td><input class="form-control" type="file" name="file" accept="image/*">
+                                  </td>
+                                  <td><input class="form-control btn btn-primary col-9" type="submit" value="Update recipe"></td>
+                              </form>
+                          </form>
+                      </div>
+                  </tr>
+          </tbody>
+          </table>
+</div>
+</section>
+</html>

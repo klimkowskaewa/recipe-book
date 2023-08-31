@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: template (~{:: #bmi-section})}">
+
+<section id="bmi-section">
+  <div class="container">
+    <h2>Input data </h2>
+    <div class="form-row">
+      <form method="POST" th:action="@{/bmi}" th:object="${operationModel}" >
+        <div class="form-row">
+          <p>Weight[kg]:  </p>
+          <input th:field="*{weight}" type="text" placeholder="Weight" class="input">
+          <p>Height[m]:  </p>
+          <input th:field="*{height}" type="text" placeholder="Height" class="input">
+        </div>
+
+        <div class="form-row" style="justify-content: center">
+          <input class="btn" type="submit" name="divideBmi" value="Calculate"/>
+          <input class="btn" type="submit" name="clearBmi" value="Clear"/>
+        </div>
+       </form>
+    </div>
+  </div>
+
+    <div class="container">
+    <h2>Your BMI: </h2>
+    <form method="POST" th:action="@{/bmi}" th:object="${operationModel}">
+      <div class="form-field">
+          <p th:text="${#numbers.formatDecimal(calculatedBmi, 2, 'DEFAULT', 2, 'DEFAULT')}"></p>
+      </div>
+    </form>
+    </div>
+
+    <div class="container">
+       <table class="bmi-table">
+        <thead>
+        <tr>
+          <th>BMI range for adults</th>
+          <th>Classification</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>  <16 </td>
+          <td>Severe Thinness</td>
+        </tr>
+        <tr>
+          <td>16 - 17</td>
+          <td>Moderate Thinness</td>
+        </tr>
+        <tr>
+          <td>17 - 18.5</td>
+          <td>Mild Thinness</td>
+        </tr>
+        <tr>
+          <td>18.5 - 25</td>
+          <td>Normal</td>
+        </tr>
+        <tr>
+          <td>25 - 30</td>
+          <td>Overweight</td>
+        </tr>
+        <tr>
+          <td>30 - 35</td>
+          <td>Obese Class I</td>
+        </tr>
+        <tr>
+          <td>35 - 40</td>
+          <td>Obese Class II</td>
+        </tr>
+        <tr>
+          <td> >40</td>
+          <td>Obese Class III</td>
+        </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+</section>
+</html>

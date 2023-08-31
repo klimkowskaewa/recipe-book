@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" xmlns:th="https://www.thymeleaf.org">
+  <title>Recipe Book</title>
+</head>
+<body>
+
+<nav style="" id="page-nav" th:fragment="nav">
+  <div class="container" id="nav-row">
+    <a th:href="@{/}" id="logo">Recipe Book</a>
+    <a class="nav-item" th:href="@{/recipes/create}">Add recipe</a>
+    <a class="nav-item" th:href="@{/recipes}">All recipes</a>
+    <a class="nav-item" th:href="@{/bmi}">Calculate your bmi</a>
+  </div>
+</nav>
+
+</body>
+
+</html>

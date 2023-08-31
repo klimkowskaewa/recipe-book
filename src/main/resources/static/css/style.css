@@ -1,0 +1,247 @@
+:root{
+    --primary: #222222;
+    --secondary: #1E87F0;
+    --warning: #F0506E;
+    --white: #FFFFFF;
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+html, body {
+    margin: 0;
+}
+
+a {
+    text-decoration: inherit;
+    color: inherit;
+}
+
+.container{
+    margin: 0 auto;
+}
+
+@media only screen and (max-width: 992px) {
+    .container {
+        width: 90%;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .container {
+        width: 80%;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .container {
+        width: 50%;
+    }
+}
+
+#page-nav{
+    padding: 10px 0;
+}
+
+#nav-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between
+}
+
+#logo{
+    font-size: 2em;
+}
+
+.nav-item {
+    text-transform: uppercase;
+    padding: 10px 0;
+}
+
+.btn{
+    background-color: var(--secondary);
+    padding: 15px;
+    text-transform: uppercase;
+    color: var(--white);
+    font-weight: 200;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.btm-sm{
+    padding: 5px 15px;
+    font-size: 0.8em;
+}
+
+#home-page-section .container div {
+    margin: 50px 0;
+}
+
+.input{
+    border: 1px solid var(--primary);
+    padding: 15px;
+    width: 100%;
+}
+
+#confirm-text {
+    font-size: 3em;
+}
+
+#menu-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.text {
+    font-weight: 200;
+}
+
+#text-div {
+    text-align: center;
+}
+
+#bmi-section {
+    margin: 0 auto;
+    padding: 10px;
+    width: 90%;
+    justify-content: center;
+    font-weight: 100;
+}
+
+#bmi-section form div {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+}
+#bmi-section .container > div {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#bmi-section .container div {
+    margin: 0 auto;
+    display: flex;
+    padding: 10px;
+}
+
+#bmi-section .form-row{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+#bmi-section .form-field{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#bmi-section .bmi-table{
+    border: 1px solid var(--secondary);
+    padding: 8px;
+    font-weight: 100;
+    font-size: 1.1em;
+}
+
+#bmi-section .bmi-table th{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: darkblue;
+    color: black;
+    width: 70%;
+    font-size: 1em;
+}
+
+#bmi-section .bmi-table tr:nth-child(even){
+    background-color: lightblue;
+}
+
+#bmi-section .bmi-table tr:hover {
+    background-color: lightslategray;
+}
+
+#add-recipe-page-section .recipe-row{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 12px;
+}
+
+.btn-recipe{
+    background-color: var(--secondary);
+    padding: 15px 32px;
+    text-transform: uppercase;
+    color: var(--white);
+    font-weight: 200;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    display: inline-block;
+    width: min-content;
+}
+
+#recipe-page-section .recipe-table {
+    padding: 8px;
+    font-weight: 100;
+    font-size: 1.1em;
+    width: 100%;
+}
+
+
+#recipe-page-section .recipe-table th {
+    padding-top: 7px;
+    padding-bottom: 5px;
+    text-align: left;
+    background-color: yellow;
+    color: var(--primary);
+}
+
+.btn-recipe-delete{
+    background-color: var(--warning);
+    padding: 15px 32px;
+    text-transform: uppercase;
+    color: var(--primary);
+    font-weight: 200;
+    cursor: pointer;
+    font-size: 1em;
+    display: inline-block;
+    width: min-content;
+}
+
+.btn-recipe-warning{
+    background-color: orange;
+    padding: 15px 32px;
+    text-transform: uppercase;
+    color: var(--primary);
+    font-weight: 200;
+    cursor: pointer;
+    font-size: 1em;
+    display: inline-block;
+    width: min-content;
+}
+
+.container-dwa{
+    max-width: available;
+    margin: 10px;
+    justify-content: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
